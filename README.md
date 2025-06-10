@@ -18,7 +18,7 @@ This system provides a comprehensive set of features for managing employee recor
     * **View Employee List:** Displays a clear, tabular overview of all registered employees, including their unique ID, Name, Department, and Email. Each entry provides direct links for editing or deleting the record, as seen in the application's main view.
     * **Add New Employee:** Offers a dedicated form to easily input details for a new employee, such as their name, department, and email address, which are then saved to the database.
     * **Edit Employee Details:** Provides functionality to modify the information of an existing employee. Users can select an employee from the list, update their details via a form, and save the changes.
-    * **Delete Employee Record:** Allows for the permanent removal of an employee record from the system, ensuring data cleanliness and accurate employee tracking.
+    * **Delete Employee Record:** Allows for the permanent removal of an employee record from the system. Before deletion, an alert box will be displayed to confirm the user's action, ensuring data cleanliness and accurate employee tracking.
 
 * **Robust Data Persistence:**
     * Utilizes **Hibernate ORM** to seamlessly map Java objects (like `Employee` entities) to the relational database, simplifying data storage and retrieval.
