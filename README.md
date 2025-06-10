@@ -29,7 +29,6 @@ This system provides a comprehensive set of features for managing employee recor
 
 * **Simplified Configuration & Development:**
     * Features **Java Configuration** throughout, meaning all Spring and Hibernate setups are defined in Java classes, moving away from verbose XML files (`web.xml`, `spring-servlet.xml`).
-    * Includes **H2 Console Integration**, a built-in web-based tool for direct interaction with the H2 database. This console is invaluable during development for viewing database schema, executing SQL queries, and inspecting data in real-time.
 
 * **Interactive User Interface:**
     * The frontend is developed using **JSP (JavaServer Pages)**, enabling dynamic content generation and seamless data display.
