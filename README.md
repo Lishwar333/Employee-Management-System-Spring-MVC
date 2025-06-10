@@ -89,3 +89,77 @@ Follow these steps to get the Spring MVC application up and running on your loca
 ```bash
 git clone [https://github.com/your-username/employee-management-system.git](https://github.com/your-username/employee-management-system.git)
 cd employee-management-system # Navigate into the project root directory
+
+### Step 2: Open in Your IDE
+
+Navigate to the project directory and open it in your preferred IDE (e.g., IntelliJ IDEA, Eclipse with Spring Tools Suite). The IDE should recognize it as a Maven project.
+
+* **Eclipse:**
+    1.  Open Eclipse.
+    2.  Go to the top menu bar, click `File` > `Import...`.
+    3.  In the "Import" wizard, expand `Maven` and select `Existing Maven Projects`. Click `Next`.
+    4.  Click the `Browse...` button next to "Root Directory" and navigate to the root directory of the cloned project (where `pom.xml` is located).
+    5.  Once selected, the projects found in that directory (your `employee-management-system`) will be listed. Ensure it's checked.
+    6.  Click `Finish`. Eclipse will then import the Maven project, download dependencies, and build the workspace.
+
+    *Example Menu Navigation in Eclipse:*
+    ```
+    File
+    └── Import...
+        └── Maven
+            └── Existing Maven Projects
+    ```
+
+* **IntelliJ IDEA:**
+    1.  Open IntelliJ IDEA.
+    2.  From the welcome screen or the top menu bar, click `File` > `Open...`.
+    3.  Navigate to the root directory of the cloned project (the folder containing `pom.xml`).
+    4.  Select the `pom.xml` file itself or the project's root folder and click `Open`.
+    5.  IntelliJ IDEA will typically detect it as a Maven project and ask if you want to import it. Confirm to import the project as a Maven project.
+    6.  The IDE will then proceed to download all necessary Maven dependencies and index the project. This might take a few moments depending on your internet connection and the number of dependencies.
+
+    *Example Menu Navigation in IntelliJ IDEA:*
+    ```
+    File
+    └── Open...
+    ```
+
+### Step 3: Setup Dependencies
+
+The project uses Maven for dependency management. Ensure your IDE has Maven properly configured. You can also run `mvn clean install` from the root directory to download all necessary dependencies and build the project's WAR file.
+
+### Step 4: Run the Application on Tomcat
+
+1.  **Clean and Build Project:**
+    From your project's root directory in a terminal, run:
+
+    ```bash
+    mvn clean install
+    ```
+    This command compiles your code, runs tests, and packages your application into a `.war` file (e.g., `employee-management-system.war`) located in the `target/` directory.
+
+2.  **Deploy to Tomcat:**
+    * **Manual Deployment:** Copy the generated `.war` file from `target/` to Tomcat's `webapps/` directory.
+    * **IDE Deployment:** Configure your IDE to run the application on Tomcat. This is the recommended approach as it simplifies starting and stopping.
+        * **Eclipse:** In the "Servers" view, add a new Tomcat server, then add your project to it.
+        * **IntelliJ IDEA:** Create a new Tomcat Run/Debug Configuration and deploy your artifact.
+
+3.  **Start Tomcat:**
+    Ensure your Apache Tomcat server is running. If you're using an IDE, start the server from within the IDE's "Servers" view.
+
+    **Important Troubleshooting Tip:** If you encounter an `Address already in use: bind` error during startup (which indicates a port conflict), ensure that no other instances of Tomcat or other applications are running on the required ports (e.g., Tomcat's default 8080, or the H2 console port you configured in `MVCConfiguration.java`). You may need to manually stop or kill conflicting processes from your operating system's task manager/terminal before restarting Tomcat.
+
+### Step 5: Access the H2 Console (for Database Inspection)
+
+While your application is running, the H2 Console will also be available for direct database inspection.
+
+1.  Open your web browser and go to:
+    `http://localhost:9100/h2-console`
+    (Replace `9100` with the actual port configured for the H2 console in your `MVCConfiguration.java` if you changed it).
+
+2.  On the H2 Console login page, use these details:
+    * **JDBC URL:** `jdbc:h2:mem:employeedb`
+    * **User Name:** `sa`
+    * **Password:** (Leave blank, as per your `hibernate.cfg.xml`)
+
+3.  Click **Connect**. You can now inspect your database, view the `EMPLOYEE` table, and run SQL queries.
