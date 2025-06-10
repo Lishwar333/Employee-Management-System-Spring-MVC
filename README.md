@@ -89,7 +89,7 @@ Follow these steps to get the Spring MVC application up and running on your loca
 ```bash
 git clone [https://github.com/your-username/employee-management-system.git](https://github.com/your-username/employee-management-system.git)
 cd employee-management-system # Navigate into the project root directory
-
+```
 ### Step 2: Open in Your IDE
 
 Navigate to the project directory and open it in your preferred IDE (e.g., IntelliJ IDEA, Eclipse with Spring Tools Suite). The IDE should recognize it as a Maven project.
