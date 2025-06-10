@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.employee</groupId>
+  <artifactId>EmployeeSpringMVC</artifactId> <!-- Renamed to match typical web app name -->
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging> <!-- IMPORTANT: Changed from 'jar' to 'war' for web application -->
+
+  <name>EmployeeSpringMVC</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <spring.version>5.3.37</spring.version> <!-- Spring 5.3.x for javax compatibility -->
+    <maven.compiler.source>17</maven.compiler.source> <!-- Your Java 17 environment -->
+    <maven.compiler.target>17</maven.compiler.target>
+
+    <!-- Java EE 8 / javax API Versions (compatible with Tomcat 9.0.x) -->
+    <javax.servlet.api.version>4.0.1</javax.servlet.api.version> <!-- Servlet 4.0 (Java EE 8) -->
+    <javax.servlet.jsp.api.version>2.3.3</javax.servlet.jsp.api.version> <!-- JSP 2.3 -->
+    <!-- JSTL 1.2 does not need a version property as it's already specified below -->
+  </properties>
+
+  <dependencies>
+ 
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-webmvc</artifactId>
+        <version>${spring.version}</version>
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-orm</artifactId>
+        <version>${spring.version}</version> <!-- Align version with other Spring modules -->
+    </dependency>
+    <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-tx</artifactId>
+        <version>${spring.version}</version> <!-- Include Spring Transaction module -->
+    </dependency>
+
+    <!-- Servlet API (provided by Tomcat) -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>${javax.servlet.api.version}</version>
+        <scope>provided</scope> <!-- Important: Provided by the container -->
+    </dependency>
+
+    <!-- JSP API (provided by Tomcat) -->
+    <dependency>
+        <groupId>javax.servlet.jsp</groupId>
+        <artifactId>javax.servlet.jsp-api</artifactId>
+        <version>${javax.servlet.jsp.api.version}</version>
+        <scope>provided</scope> <!-- Important: Provided by the container -->
+    </dependency>
+
+    <!-- JSTL for JSP EL (Needs to be packaged in WAR) -->
+    <dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+        <version>1.2</version> <!-- DO NOT set scope to 'provided' -->
+    </dependency>
+    
+    <!-- Hibernate Core -->
+    <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>5.6.15.Final</version> <!-- Compatible with Spring 5.3.x (javax.persistence) -->
+    </dependency>
+
+    <!-- H2 Database -->
+    <dependency>
+        <groupId>com.h2database</groupId>
+        <artifactId>h2</artifactId>
+        <version>2.1.214</version>
+        <!-- Scope is not 'provided' if you intend to use the H2 console or embedded DB -->
+    </dependency>
+
+    <!-- MySQL Connector -->
+    <dependency>
+        <groupId>mysql</groupId>
+        <artifactId>mysql-connector-java</artifactId>
+        <version>8.0.33</version>
+        <scope>runtime</scope> <!-- Usually runtime unless directly compiling against it -->
+    </dependency>
+
+    <!-- Apache Commons DBCP (for DataSource) -->
+    <dependency>
+        <groupId>commons-dbcp</groupId>
+        <artifactId>commons-dbcp</artifactId>
+        <version>1.4</version>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.11.0-M1</version> <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.11.0-M1</version> <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-params</artifactId>
+        <version>5.11.0-M1</version> <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <finalName>EmployeeSpringMVC</finalName> <!-- Recommended for clarity -->
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.8.1</version> <!-- Use a modern compiler plugin -->
+        <configuration>
+          <source>${maven.compiler.source}</source>
+          <target>${maven.compiler.target}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>3.3.2</version> <!-- Use a modern WAR plugin -->
+        <configuration>
+          <!-- Explicitly set the web application version for Java EE 8 / Servlet 4.0 -->
+          <failOnMissingWebXml>false</failOnMissingWebXml> <!-- Allows pure Java config -->
+          <webXmlVersion>4.0</webXmlVersion> <!-- IMPORTANT: Set to 4.0 for Java EE 8 / javax -->
+          <!-- You can also use <webXmlVersion>3.1</webXmlVersion> if targeting Servlet 3.1 directly -->
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>

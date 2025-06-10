@@ -1,0 +1,141 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+  font-family: Arial, sans-serif;
+  background-color: #f0f4f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Outer wrapper to allow scrolling if content exceeds height */
+.wrapper {
+  width: 100%;
+  max-width: 1000px;
+  margin: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  background-color: white;
+  overflow: hidden;
+}
+
+/* Header styles */
+header {
+  padding: 20px;
+  background-color: #004080;
+  color: white;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 10px;
+  font-size: 2rem;
+}
+
+header nav a {
+  color: #cce0ff;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+header nav a:hover {
+  text-decoration: underline;
+}
+
+/* Main section */
+main {
+  padding: 30px;
+}
+
+.search-form {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.search-form input[type="text"] {
+  padding: 10px;
+  width: 60%;
+  border: 1px solid #ccc;
+  border-radius: 5px 0 0 5px;
+  font-size: 1rem;
+}
+
+.search-form button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #004080;
+  color: white;
+  font-weight: bold;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.search-form button:hover {
+  background-color: #003366;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f7fa;
+  color: #333;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+a {
+  color: #004080;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Pagination */
+.pagination {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.pagination a {
+  margin: 0 10px;
+  color: #004080;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  text-decoration: underline;
+}
+
+/* Footer styles */
+footer {
+  padding: 15px 20px;
+  background-color: #004080;
+  color: white;
+  text-align: center;
+  font-size: 0.9rem;
+}
