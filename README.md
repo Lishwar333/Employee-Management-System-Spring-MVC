@@ -102,14 +102,6 @@ Navigate to the project directory and open it in your preferred IDE (e.g., Intel
     5.  Once selected, the projects found in that directory (your `employee-management-system`) will be listed. Ensure it's checked.
     6.  Click `Finish`. Eclipse will then import the Maven project, download dependencies, and build the workspace.
 
-    *Example Menu Navigation in Eclipse:*
-    ```
-    File
-    └── Import...
-        └── Maven
-            └── Existing Maven Projects
-    ```
-
 * **IntelliJ IDEA:**
     1.  Open IntelliJ IDEA.
     2.  From the welcome screen or the top menu bar, click `File` > `Open...`.
@@ -118,11 +110,6 @@ Navigate to the project directory and open it in your preferred IDE (e.g., Intel
     5.  IntelliJ IDEA will typically detect it as a Maven project and ask if you want to import it. Confirm to import the project as a Maven project.
     6.  The IDE will then proceed to download all necessary Maven dependencies and index the project. This might take a few moments depending on your internet connection and the number of dependencies.
 
-    *Example Menu Navigation in IntelliJ IDEA:*
-    ```
-    File
-    └── Open...
-    ```
 
 ### Step 3: Setup Dependencies
 
