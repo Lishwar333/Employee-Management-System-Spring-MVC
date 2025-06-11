@@ -135,21 +135,5 @@ The project uses Maven for dependency management. Ensure your IDE has Maven prop
         * **IntelliJ IDEA:** Create a new Tomcat Run/Debug Configuration and deploy your artifact.
 
 3.  **Start Tomcat:**
-    Ensure your Apache Tomcat server is running. If you're using an IDE, start the server from within the IDE's "Servers" view.
-
-    **Important Troubleshooting Tip:** If you encounter an `Address already in use: bind` error during startup (which indicates a port conflict), ensure that no other instances of Tomcat or other applications are running on the required ports (e.g., Tomcat's default 8080, or the H2 console port you configured in `MVCConfiguration.java`). You may need to manually stop or kill conflicting processes from your operating system's task manager/terminal before restarting Tomcat.
-
-### Step 5: Access the H2 Console (for Database Inspection)
-
-While your application is running, the H2 Console will also be available for direct database inspection.
-
-1.  Open your web browser and go to:
-    `http://localhost:9100/h2-console`
-    (Replace `9100` with the actual port configured for the H2 console in your `MVCConfiguration.java` if you changed it).
-
-2.  On the H2 Console login page, use these details:
-    * **JDBC URL:** `jdbc:h2:mem:employeedb`
-    * **User Name:** `sa`
-    * **Password:** (Leave blank, as per your `hibernate.cfg.xml`)
-
-3.  Click **Connect**. You can now inspect your database, view the `EMPLOYEE` table, and run SQL queries.
+    Ensure your Apache Tomcat server is running. If you're using an IDE, start the server from within the IDE's "Servers" view. **You can now use the application by navigating to the application's URL in your web browser.** 
+    
